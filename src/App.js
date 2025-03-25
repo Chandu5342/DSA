@@ -9,6 +9,8 @@ import Profile from './Dashboard/Profile';
 import { auth } from './Configuration';
 import AddNewProb from './Dashboard/AddNewProb';
 import Problems from './Dashboard/Problems';
+import RoleDashboard from './Role/RoleDashboard';
+import ProblemsR from './Role/ProblemsR';
 
 
 function App() {
@@ -30,6 +32,8 @@ function App() {
           <Route path='/Dashboard/profile' element={<Profile />} />
           <Route path='/Dashboard/AddNewProb' element={<AddNewProb />} />
           <Route path='/Dashboard/problems' element={<Problems />} />
+          <Route path='/Role/RoleDashboard' element={<RoleDashboard />} />
+          <Route path='/Role/ProblemsR' element={<ProblemsR />} />
         </Routes>
       </Router>
       <ToastContainer />
