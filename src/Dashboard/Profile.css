@@ -134,12 +134,13 @@ table a:hover {
 /* Filters */
 .filters {
     background-color: #253b53;
-    padding: 15px;
+    padding: 10px;
     border: 1px solid #3a506b;
     border-radius: 5px;
     margin: 20px 1.2%;
-    width: 81%;
-    display: flex;
+    width: 58%;
+    display: flex
+;
     justify-content: space-around;
     align-items: center;
     flex-wrap: wrap;
@@ -150,7 +151,19 @@ table a:hover {
     font-weight: bold;
     color: #d1d5db; /* Light text color */
 }
-
+.suffle{
+    font-size: 2rem;
+}
+.suffleButton{
+    background-color: #253b53;
+    padding: 10px;
+    border: 1px solid #3a506b;
+}
+.probnav{
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
 .filters select {
     padding: 8px;
     border-radius: 5px;
@@ -159,11 +172,18 @@ table a:hover {
     background-color: #1e2a38;  /* Dark dropdown */
     color: white;
 }
-
+.filsearch{
+        padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #4a6379;
+    font-size: 16px;
+    background-color: #1e2a38;
+    color: white;
+}
 .filters select:hover {
     border-color: #63b3ed;
 }
-/* Card Layout for Problems */
+/* Problems Container */
 .problems-container {
     display: flex;
     justify-content: space-between;
@@ -174,16 +194,17 @@ table a:hover {
 
 /* Problems List */
 .problems-list {
-    width: 85%;
+    width: 75%;
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 10px;
 }
 
+/* Problem Card */
 .problem-card {
     background-color: #253b53;
     color: white;
-    padding: 15px;
+    padding: 12px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     display: flex;
@@ -193,43 +214,64 @@ table a:hover {
     transition: all 0.3s ease-in-out;
 }
 
+/* Hover Effect */
 .problem-card:hover {
     background-color: #1e2a38;
 }
 
+/* Aligns all items in one row with equal spacing */
 .problem-info {
     display: flex;
-    flex-direction: column;
-    gap: 5px;
+        align-items: center;
+        width: 100%;
+        gap: 30px;
 }
 
+/* Individual Fields - Fixed Width for Alignment */
 .problem-name {
-    font-size: 18px;
+    font-size: 16px;
     font-weight: bold;
     color: #63b3ed;
+    width: 30%;  /* Adjust width as needed */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
-.problem-meta {
-    display: flex;
-    gap: 10px;
-    font-size: 14px;
-    color: #d1d5db;
+.problem-platform {
+    width: 15%;
+    text-align: left;
 }
 
+.problem-difficulty {
+    width: 15%;
+    text-align: left;
+}
+
+.problem-topic {
+    width: 20%;
+    text-align: left;
+}
+
+/* Difficulty Styling */
 .difficulty {
-    padding: 3px 8px;
+    padding: 5px 10px;
     border-radius: 5px;
     font-weight: bold;
+    text-transform: capitalize;
 }
 
 .easy { background-color: #16a34a; color: white; }
 .medium { background-color: #eab308; color: black; }
 .hard { background-color: #dc2626; color: white; }
 
+/* Solve Button */
 .solve-link {
     text-decoration: none;
     color: #63b3ed;
     font-weight: bold;
+    text-align: right;
+    width: 10%;
 }
 
 .solve-link:hover {
@@ -259,6 +301,7 @@ table a:hover {
     margin-bottom: 10px;
 }
 
+/* Progress Bar */
 .progress-bar {
     width: 100%;
     background-color: #3a506b;
@@ -291,7 +334,9 @@ table a:hover {
 
 .leaderboard-item span {
     font-weight: bold;
-}
-.Probmain{
-    /*width: 10%;*/
+}   
+.but{
+    background-color: white;
+    width: 10px;
+    height: 10px;
 }

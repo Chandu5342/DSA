@@ -188,8 +188,9 @@ function Problems(props)
             }
        
        
-
+          <div className="probnav" >
              <div className="filters">
+                <input type="text" className="filsearch" placeholder="enter"></input>
                 <label htmlFor="difficulty-filter">Difficulty:</label>
                 <select id="difficulty-filter" onChange={e => setDifficulty(e.target.value)}>
                     <option value="All">All</option>
@@ -213,6 +214,11 @@ function Problems(props)
                         ? TopicDD.map(item => <option key={item.value} value={item.value}>{item.Lable}</option>)
                         : <option>Loading...</option>}
                 </select>
+              
+            </div>
+            <div className="suffleButton"> 
+            <span><i class="fa-solid fa-shuffle suffle"></i></span>
+            <span>Pick a problem</span></div>
             </div>
             <div className="problems-container">
             {/* Problems List */}
@@ -221,13 +227,16 @@ function Problems(props)
                     <div className="problem-card" key={item.Id}>
                         <div className="problem-info">
                             <span className="problem-name">{item.ProblemName}</span>
-                            <div className="problem-meta">
-                                <span className={`difficulty ${item.Difficulty.toLowerCase()}`}>
-                                    {DifficultyMap[item.Difficulty]}
-                                </span>
-                                <span>{PlatformMap[item.Platform]}</span>
-                                <span>{TopicMap[item.Topic]}</span>
-                            </div>
+                            <span className="problem-platform">{PlatformMap[item.Platform]}</span>
+                            <span className={`difficulty problem-difficulty ${item.Difficulty.toLowerCase()}`}>
+                                {DifficultyMap[item.Difficulty]}
+                            </span>
+                            <span className="problem-topic">{TopicMap[item.Topic]}</span>
+                            <input
+                                    type="checkbox"
+                                    checked={SolvedProblems.includes(item.Id)}
+                                    onChange={(e) => handletogglestatus(item.Id, e.target.checked)}
+                                />
                         </div>
                         <a className="solve-link" href={item.Link} target="_blank" rel="noopener noreferrer">
                             Solve →
