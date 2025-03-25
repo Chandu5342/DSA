@@ -1,0 +1,297 @@
+/* General Styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #1e2a38;
+    margin: 0;
+    padding: 0;
+    color: #d1d5db;
+}
+
+/* Header */
+.header {
+    background-color: #162b40;
+    color: white;
+    padding: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+    padding: 10px 70px;
+}
+
+.navbar a {
+    text-decoration: none;
+    font-size: 18px;
+    color: #d1d5db;
+}
+
+.navbar a:hover {
+    color: #ffffff;
+    background-color: #253b53;
+}
+
+/* Progress Bar */
+.progress-container {
+    width: 100%;
+    background-color: #253b53;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    overflow: hidden;
+}
+
+.progress-bar-fill {
+    height: 100%;
+    background-color: #4caf50;
+    text-align: center;
+    line-height: 25px;
+    color: white;
+    font-weight: bold;
+    border-radius: 10px;
+    transition: width 0.5s ease-in-out;
+}
+
+/* Table */
+table {
+    width: 90%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    background-color: #253b53;
+    color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+table thead {
+    background-color: #2d62d9;
+    color: white;
+}
+
+table th, table td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #444;
+}
+
+table tr:nth-child(even) {
+    background-color: #1f2937;
+}
+
+table a {
+    color: #63b3ed;
+    text-decoration: none;
+}
+
+table a:hover {
+    text-decoration: underline;
+}
+
+/* Buttons */
+.add-button {
+    width: 250px;
+    margin: 20px auto;
+    padding: 12px;
+    background-color: #2563eb;
+    color: white;
+    text-align: center;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    font-size: 16px;
+}
+
+.add-button:hover {
+    background-color: #1e40af;
+}
+
+/* Add Button */
+.add-button {
+    display: block;
+    width: 250px;
+    margin: 20px auto;
+    padding: 12px;
+    background-color: #2563eb;  /* Deep blue */
+    color: white;
+    text-align: center;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    font-size: 16px;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.add-button:hover {
+    background-color: #1e40af;  /* Darker blue */
+}
+
+/* Filters */
+.filters {
+    background-color: #253b53;
+    padding: 15px;
+    border: 1px solid #3a506b;
+    border-radius: 5px;
+    margin: 20px 1.2%;
+    width: 81%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+
+.filters label {
+    font-weight: bold;
+    color: #d1d5db; /* Light text color */
+}
+
+.filters select {
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #4a6379;
+    font-size: 16px;
+    background-color: #1e2a38;  /* Dark dropdown */
+    color: white;
+}
+
+.filters select:hover {
+    border-color: #63b3ed;
+}
+/* Card Layout for Problems */
+.problems-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 20px;
+}
+
+/* Problems List */
+.problems-list {
+    width: 85%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.problem-card {
+    background-color: #253b53;
+    color: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-left: 5px solid #2d62d9;
+    transition: all 0.3s ease-in-out;
+}
+
+.problem-card:hover {
+    background-color: #1e2a38;
+}
+
+.problem-info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.problem-name {
+    font-size: 18px;
+    font-weight: bold;
+    color: #63b3ed;
+}
+
+.problem-meta {
+    display: flex;
+    gap: 10px;
+    font-size: 14px;
+    color: #d1d5db;
+}
+
+.difficulty {
+    padding: 3px 8px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.easy { background-color: #16a34a; color: white; }
+.medium { background-color: #eab308; color: black; }
+.hard { background-color: #dc2626; color: white; }
+
+.solve-link {
+    text-decoration: none;
+    color: #63b3ed;
+    font-weight: bold;
+}
+
+.solve-link:hover {
+    text-decoration: underline;
+}
+
+/* Sidebar (Progress & Leaderboard) */
+.sidebarp {
+    width: 15%;
+    background-color: #1e2a38;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.progress-container,
+.leaderboard-container {
+    background-color: #253b53;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.progress-container h3,
+.leaderboard-container h3 {
+    color: white;
+    margin-bottom: 10px;
+}
+
+.progress-bar {
+    width: 100%;
+    background-color: #3a506b;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 20px;
+    background-color: #4caf50;
+    text-align: center;
+    color: white;
+    line-height: 20px;
+    transition: width 0.5s ease-in-out;
+}
+
+/* Leaderboard */
+.leaderboard-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.leaderboard-item {
+    display: flex;
+    justify-content: space-between;
+    color: #d1d5db;
+    padding: 5px 0;
+}
+
+.leaderboard-item span {
+    font-weight: bold;
+}
+.Probmain{
+    /*width: 10%;*/
+}

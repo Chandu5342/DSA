@@ -1,0 +1,182 @@
+.login-container {
+    background-color: #ffffff; /* White background */
+    border: 2px solid #1e90ff; /* Blue border */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px 30px;
+    width: 300px;
+    
+    /* Centering */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+    /* Form container */
+    .login-container {
+        background-color: #ffffff; /* White background for form */
+        border: 2px solid #1e90ff; /* Blue border */
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        padding: 20px 30px;
+        width: 300px;
+        justify-content:space-between;
+    }
+  
+    /* Form title */
+    .login-container h2 {
+        text-align: center;
+        color: #1e90ff; /* Blue color for title */
+        margin-bottom: 20px;
+    }
+  
+    /* Input field styles */
+    .login-container label {
+        font-weight: bold;
+        color: #333;
+    }
+  
+    .login-container select,
+    .login-container input {
+        width: 100%;
+        padding: 10px;
+        margin: 10px 0;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 14px;
+    }
+  
+    /* Button styling */
+    .login-container .lb {
+        background-color: #1e90ff; /* Blue button */
+        color: white;
+        border: none;
+        padding: 10px;
+        font-size: 16px;
+        border-radius: 5px;
+        cursor: pointer;
+        width: 11%;
+    }
+  
+    /* Button hover effect */
+    .login-container .lb:hover {
+        background-color: #104e8b; /* Darker blue */
+    }
+
+    
+
+
+
+
+/* Flex container for dropdown and + button */
+.dropdown-container {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Space between dropdown and button */
+}
+
+/* + Button Styling */
+.ab {
+    background-color: #0b3968;
+    color: white;
+    border: none;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 5px 12px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.ab :hover{
+    background-color: #104e8b;
+}
+/* Align dropdowns and plus buttons */
+.dropdown-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Style for the plus button */
+.add-btn {
+    background-color: #1e90ff;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.add-btn:hover {
+    background-color: #104e8b;
+}
+
+
+/* Align dropdowns and plus buttons */
+.dropdown-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Style for the plus button */
+.add-btn {
+    background-color: #1e90ff;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.add-btn:hover {
+    background-color: #104e8b;
+}
+
+/* Popup Overlay */
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Popup Form */
+.popup-form {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 400px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+/* Close button */
+.close-btn {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 10px;
+    margin-left: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.close-btn:hover {
+    background-color: darkred;
+}
+
+/* Popup Buttons */
+.popup-buttons {
+    margin-top: 10px;
+}

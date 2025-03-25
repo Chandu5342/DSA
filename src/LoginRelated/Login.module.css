@@ -1,0 +1,61 @@
+    /* General body styling */
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f8ff; /* Light blue background */
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+  
+    /* Form container */
+    .login-container {
+        background-color: #ffffff; /* White background for form */
+        border: 2px solid #1e90ff; /* Blue border */
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        padding: 20px 30px;
+        width: 300px;
+    }
+  
+    /* Form title */
+    .login-container h2 {
+        text-align: center;
+        color: #1e90ff; /* Blue color for title */
+        margin-bottom: 20px;
+    }
+  
+    /* Input field styles */
+    .login-container label {
+        font-weight: bold;
+        color: #333;
+    }
+  
+    .login-container select,
+    .login-container input {
+        width: 100%;
+        padding: 10px;
+        margin: 10px 0;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 14px;
+    }
+  
+    /* Button styling */
+    .login-container button {
+        background-color: #1e90ff; /* Blue button */
+        color: white;
+        border: none;
+        padding: 10px;
+        font-size: 16px;
+        border-radius: 5px;
+        cursor: pointer;
+        width: 100%;
+    }
+  
+    /* Button hover effect */
+    .login-container button:hover {
+        background-color: #104e8b; /* Darker blue */
+    }

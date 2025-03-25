@@ -1,24 +1,39 @@
-import logo from './logo.svg';
 import './App.css';
+import Login from './LoginRelated/Login';
+import Register from './LoginRelated/Register';
+import React, { useEffect, useState } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import Profile from './Dashboard/Profile';
+import { auth } from './Configuration';
+import AddNewProb from './Dashboard/AddNewProb';
+import Problems from './Dashboard/Problems';
+
 
 function App() {
+  let [user, setUser] = useState(null);
+
+  useEffect(() => {
+    auth.onAuthStateChanged((user) => {
+      setUser(user);
+    });
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Router>
+        <Routes>
+          <Route path='/' element={user?<Profile/>:<Login />} />
+          <Route path='/LoginRelated/login' element={<Login />} />
+          <Route path='/LoginRelated/register' element={<Register />} />
+          <Route path='/Dashboard/profile' element={<Profile />} />
+          <Route path='/Dashboard/AddNewProb' element={<AddNewProb />} />
+          <Route path='/Dashboard/problems' element={<Problems />} />
+        </Routes>
+      </Router>
+      <ToastContainer />
+    </>
   );
 }
 
