@@ -3,6 +3,8 @@ import Profile from "./Profile";
 import { auth ,db} from "../Configuration";
 import { addDoc, collection, getDocs, query,deleteDoc, doc, updateDoc, where } from "firebase/firestore";
 import { data } from "react-router-dom";
+import CircularProgress from "./CicularProgress";
+import ThinArcChart from "./CircularSvg";
 
 
 function Problems(props)
@@ -247,14 +249,14 @@ function Problems(props)
 
             {/* Sidebar */}
             <div className="sidebarp">
-                {/* Progress Section */}
+              
                 <div className="progress-container">
-                    <h3>Your Progress</h3>
-                    <div className="progress-bar">
-                        <div className="progress-fill" style={{ width: `${progress}%` }}>
-                            {Math.round(progress)}%
-                        </div>
-                    </div>
+                    
+                                    <ThinArcChart
+                        easy={1000} medium={1000} hard={500}   // Total Problems
+                        easySolved={100} mediumSolved={100} hardSolved={100} // Solved Problems
+                    />
+                    
                 </div>
 
                 {/* Leaderboard Section */}
@@ -277,41 +279,7 @@ function Problems(props)
                 </div>
             </div>
         </div>
-          {/*   <table id="problems-table">
-            <thead>
-                <tr>
-                    <th>#</th>
-                    <th>Problem Name</th>
-                    <th>Difficulty</th>
-                    <th>Platform</th>
-                    <th>Topic</th>
-                    <th>Link</th>
-                    <th>Solved</th>
-                </tr>
-            </thead>
-            <tbody>
-                {
-                     ProblemList.map((item, index) => (
-                        <tr key={item.Id} >
-                            <td>{index+1}</td>
-                            <td>{item.ProblemName}</td>
-                            <td>{DifficultyMap[item.Difficulty]}</td>
-                            <td>{PlatformMap[item.Platform]}</td>
-                            <td>{TopicMap[item.Topic]}</td>
-                            <td><a href={item.Link} target="_blank" rel="noopener noreferrer"><i className="fa-solid fa-link"></i></a></td>
-                            <td>
-                                <input
-                                    type="checkbox"
-                                    checked={SolvedProblems.includes(item.Id)}
-                                    onChange={(e) => handletogglestatus(item.Id, e.target.checked)}
-                                />
-                            </td>
-                        </tr>
-                    ))
-                }
-           
-            </tbody>
-        </table> */}
+         
     </>
   )
 }

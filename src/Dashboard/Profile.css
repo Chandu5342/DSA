@@ -1,4 +1,3 @@
-/* General Styling */
 body {
     font-family: Arial, sans-serif;
     background-color: #1e2a38;
@@ -185,11 +184,12 @@ table a:hover {
 }
 /* Problems Container */
 .problems-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 20px;
-    padding: 20px;
+    display: flex
+    ;
+        /* justify-content: space-between; */
+        align-items: flex-start;
+        gap: 21px;
+        padding: 20px;
 }
 
 /* Problems List */
@@ -280,14 +280,21 @@ table a:hover {
 
 /* Sidebar (Progress & Leaderboard) */
 .sidebarp {
-    width: 15%;
+    width: 24%;
     background-color: #1e2a38;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: -19px;
 }
 
-.progress-container,
+.progress-container
+{
+    background-color: #253b53;
+    padding: 0px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
 .leaderboard-container {
     background-color: #253b53;
     padding: 15px;
@@ -339,4 +346,67 @@ table a:hover {
     background-color: white;
     width: 10px;
     height: 10px;
+}
+.lab{
+    margin-bottom: 8px;
+}
+
+/* Mobile Design */
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .navbar {
+        flex-direction: column;
+        gap: 10px;
+        padding: 10px;
+        align-items: center;
+    }
+
+    .filters {
+        width: 90%;
+        flex-direction: column;
+        align-items: center;
+        padding: 10px;
+    }
+
+    .filters label, .filters select, .filters input {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    .progress-container {
+        width: 90%;
+        margin: 10px auto;
+    }
+
+    .problems-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .problems-list {
+        width: 100%;
+        max-width: 500px;
+    }
+
+    .problem-card {
+        flex-direction: column;
+        text-align: center;
+        padding: 15px;
+    }
+
+    .problem-info {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .sidebarp {
+        width: 120%;
+        margin: 17px -9px;
+    }
 }
