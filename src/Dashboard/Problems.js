@@ -16,8 +16,12 @@ function Problems(props)
     const [Topic, setTopic] = useState("");
     const [Platform, setPlatform] = useState("");
     const [progress, setProgress] = useState(0);
-
-
+    const [EasyT,setEasyT]=useState(0);
+    const [MediumT,setMediumT]=useState(0);
+    const [HardT,setHardT]=useState(0);
+    const [EasyS,setEasyS]=useState(0);
+    const [MediumS,setMediumS]=useState(0);
+    const [HardS,setHardS]=useState(0);
     
     // Dropdown Data
     const [DifficultyDD, setDifficultyDd] = useState([]);
@@ -96,7 +100,7 @@ function Problems(props)
         }));
         SetProblemList(TopicList);
         SetdupProblemList(TopicList); // Save a copy of original data
-       
+    
         
     }
     
@@ -158,130 +162,138 @@ function Problems(props)
         SetSolvedProblems(solvedids);
      }
 
+     const ProgressCaluc = () => {
+        // Calculate counts first
+        const easyTotal = dupProblemList.filter(i => DifficultyMap[i.Difficulty]?.toLowerCase() === "easy").length;
+        const mediumTotal = dupProblemList.filter(i => DifficultyMap[i.Difficulty]?.toLowerCase() === "medium").length;
+        const hardTotal = dupProblemList.filter(i => DifficultyMap[i.Difficulty]?.toLowerCase() === "hard").length;
+    
+        const easySolved = dupProblemList.filter(i => SolvedProblems.includes(i.Id) && DifficultyMap[i.Difficulty]?.toLowerCase() === "easy").length;
+        const mediumSolved = dupProblemList.filter(i => SolvedProblems.includes(i.Id) && DifficultyMap[i.Difficulty]?.toLowerCase() === "medium").length;
+        const hardSolved = dupProblemList.filter(i => SolvedProblems.includes(i.Id) && DifficultyMap[i.Difficulty]?.toLowerCase() === "hard").length;
+    
+        // Now update state at once
+        setEasyT(easyTotal);
+        setMediumT(mediumTotal);
+        setHardT(hardTotal);
+    
+        setEasyS(easySolved);
+        setMediumS(mediumSolved);
+        setHardS(hardSolved);
+    };
+    
      useEffect(() => {
         if (ProblemList.length > 0) {
             setProgress((SolvedProblems.length / dupProblemList.length) * 100);
         }
     }, [SolvedProblems, ProblemList]);
-
+    useEffect(() => {
+        ProgressCaluc();  // Runs after `dupProblemList` and `SolvedProblems` update
+    }, [dupProblemList, SolvedProblems, DifficultyMap]);
     useEffect(()=>{
            LoadProblemList();
            LoadDifficulty();
            LoadTopic();
            LoadPlatform();
            loadsolvedprob();
+           
+          
        
     },[])
  
-  return(
-    <>
-       
+    return (
+        <>
             <div className="progress-container">
-                     <div className="progress-bar-fill" style={{ width: `${progress}%` }}>
-                        {Math.round(progress)}%
-                    </div>
+                <div className="progress-bar-fill" style={{ width: `${progress}%` }}>
+                    {Math.round(progress)}%
+                </div>
             </div>
-            {
-                props.role=="yes" && (
-                    <button className="add-button" onClick={()=>{
-                        window.location.href="/Role/RoleDashboard";
-                    }}>Role Mode</button>
-                )
-            }
-       
-       
-          <div className="probnav" >
-             <div className="filters">
-                <input type="text" className="filsearch" placeholder="enter"></input>
-                <label htmlFor="difficulty-filter">Difficulty:</label>
-                <select id="difficulty-filter" onChange={e => setDifficulty(e.target.value)}>
-                    <option value="All">All</option>
-                    {DifficultyDD.length > 0
-                        ? DifficultyDD.map(item => <option key={item.value} value={item.value}>{item.Lable}</option>)
-                        : <option>Loading...</option>}
-                </select>
-
-                <label htmlFor="platform-filter">Platform:</label>
-                <select id="platform-filter" onChange={e => setPlatform(e.target.value)}>
-                    <option value="All">All</option>
-                    {PlatformDD.length > 0
-                        ? PlatformDD.map(item => <option key={item.value} value={item.value}>{item.Lable}</option>)
-                        : <option>Loading...</option>}
-                </select>
-
-                <label htmlFor="topic-filter">Topic:</label>
-                <select id="topic-filter" onChange={e => setTopic(e.target.value)}>
-                    <option value="All">All</option>
-                    {TopicDD.length > 0
-                        ? TopicDD.map(item => <option key={item.value} value={item.value}>{item.Lable}</option>)
-                        : <option>Loading...</option>}
-                </select>
-              
-            </div>
-            <div className="suffleButton"> 
-            <span><i class="fa-solid fa-shuffle suffle"></i></span>
-            <span>Pick a problem</span></div>
+            {props.role === "yes" && (
+                <button className="add-button" onClick={() => {
+                    window.location.href = "/Role/RoleDashboard";
+                }}>Role Mode</button>
+            )}
+            <div className="probnav">
+                <div className="filters">
+                    <input type="text" className="filsearch" placeholder="enter" />
+                    <label htmlFor="difficulty-filter">Difficulty:</label>
+                    <select id="difficulty-filter" onChange={e => setDifficulty(e.target.value)}>
+                        <option value="All">All</option>
+                        {DifficultyDD.length > 0
+                            ? DifficultyDD.map(item => <option key={item.value} value={item.value}>{item.Lable}</option>)
+                            : <option>Loading...</option>}
+                    </select>
+                    <label htmlFor="platform-filter">Platform:</label>
+                    <select id="platform-filter" onChange={e => setPlatform(e.target.value)}>
+                        <option value="All">All</option>
+                        {PlatformDD.length > 0
+                            ? PlatformDD.map(item => <option key={item.value} value={item.value}>{item.Lable}</option>)
+                            : <option>Loading...</option>}
+                    </select>
+                    <label htmlFor="topic-filter">Topic:</label>
+                    <select id="topic-filter" onChange={e => setTopic(e.target.value)}>
+                        <option value="All">All</option>
+                        {TopicDD.length > 0
+                            ? TopicDD.map(item => <option key={item.value} value={item.value}>{item.Lable}</option>)
+                            : <option>Loading...</option>}
+                    </select>
+                </div>
+                <div className="suffleButton">
+                    <span><i className="fa-solid fa-shuffle suffle"></i></span>
+                    <span>Pick a problem</span>
+                </div>
             </div>
             <div className="problems-container">
-            {/* Problems List */}
-            <div className="problems-list">
-                {ProblemList.map((item, index) => (
-                    <div className="problem-card" key={item.Id}>
-                        <div className="problem-info">
-                            <span className="problem-name">{item.ProblemName}</span>
-                            <span className="problem-platform">{PlatformMap[item.Platform]}</span>
-                            <span className={`difficulty problem-difficulty ${item.Difficulty.toLowerCase()}`}>
-                                {DifficultyMap[item.Difficulty]}
-                            </span>
-                            <span className="problem-topic">{TopicMap[item.Topic]}</span>
-                            <input
+                <div className="problems-list">
+                    {ProblemList.map((item, index) => (
+                        <div className="problem-card" key={item.Id}>
+                            <div className="problem-info">
+                                <span className="problem-name">{item.ProblemName}</span>
+                                <span className="problem-platform">{PlatformMap[item.Platform]}</span>
+                                <span className={`difficulty problem-difficulty ${item.Difficulty.toLowerCase()}`}>
+                                    {DifficultyMap[item.Difficulty]}
+                                </span>
+                                <span className="problem-topic">{TopicMap[item.Topic]}</span>
+                                <input
                                     type="checkbox"
                                     checked={SolvedProblems.includes(item.Id)}
                                     onChange={(e) => handletogglestatus(item.Id, e.target.checked)}
                                 />
+                            </div>
+                            <a className="solve-link" href={item.Link} target="_blank" rel="noopener noreferrer">
+                                Solve →
+                            </a>
                         </div>
-                        <a className="solve-link" href={item.Link} target="_blank" rel="noopener noreferrer">
-                            Solve →
-                        </a>
+                    ))}
+                </div>
+                <div className="sidebarp">
+                    <div className="progress-container">
+                        <ThinArcChart
+                            easy={EasyT} medium={MediumT} hard={HardT}
+                            easySolved={EasyS} mediumSolved={MediumS} hardSolved={HardS}
+                        />
                     </div>
-                ))}
-            </div>
-
-            {/* Sidebar */}
-            <div className="sidebarp">
-              
-                <div className="progress-container">
-                    
-                                    <ThinArcChart
-                        easy={1000} medium={1000} hard={500}   // Total Problems
-                        easySolved={100} mediumSolved={100} hardSolved={100} // Solved Problems
-                    />
-                    
-                </div>
-
-                {/* Leaderboard Section */}
-                <div className="leaderboard-container">
-                    <h3>Leaderboard</h3>
-                    <ul className="leaderboard-list">
-                        <li className="leaderboard-item">
-                            <span>#1 Abhishek Sharma</span>
-                            <span>181039</span>
-                        </li>
-                        <li className="leaderboard-item">
-                            <span>#2 Rohan Kumar</span>
-                            <span>147520</span>
-                        </li>
-                        <li className="leaderboard-item">
-                            <span>#3 Shaikh Tabrez</span>
-                            <span>147475</span>
-                        </li>
-                    </ul>
+                    <div className="leaderboard-container">
+                        <h3>Leaderboard</h3>
+                        <ul className="leaderboard-list">
+                            <li className="leaderboard-item">
+                                <span>#1 Abhishek Sharma</span>
+                                <span>181039</span>
+                            </li>
+                            <li className="leaderboard-item">
+                                <span>#2 Rohan Kumar</span>
+                                <span>147520</span>
+                            </li>
+                            <li className="leaderboard-item">
+                                <span>#3 Shaikh Tabrez</span>
+                                <span>147475</span>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
-        </div>
-         
-    </>
-  )
+        </>
+    );
 }
 
 export default Problems
