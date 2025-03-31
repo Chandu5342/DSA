@@ -161,7 +161,22 @@ function Problems(props)
         const solvedids=res.docs.map(doc=>doc.data().ProblemId);
         SetSolvedProblems(solvedids);
      }
-
+     const Suffle = () => {
+        // Filter out problems that are not solved
+        let unsolvedProblems = dupProblemList.filter(problem => !SolvedProblems.includes(problem.Id));
+    
+        if (unsolvedProblems.length === 0) {
+            console.log("All problems are solved!");
+            return;
+        }
+    
+        // Pick a random problem from unsolved ones
+        let randomProblem = unsolvedProblems[Math.floor(Math.random() * unsolvedProblems.length)];
+    
+        SetProblemList(randomProblem);
+    
+        // You can store it in a state variable to display in UI if needed
+    };
      const ProgressCaluc = () => {
         // Calculate counts first
         const easyTotal = dupProblemList.filter(i => DifficultyMap[i.Difficulty]?.toLowerCase() === "easy").length;
@@ -183,6 +198,7 @@ function Problems(props)
     };
     
      useEffect(() => {
+        
         if (ProblemList.length > 0) {
             setProgress((SolvedProblems.length / dupProblemList.length) * 100);
         }
@@ -195,10 +211,7 @@ function Problems(props)
            LoadDifficulty();
            LoadTopic();
            LoadPlatform();
-           loadsolvedprob();
-           
-          
-       
+           loadsolvedprob();     
     },[])
  
     return (
@@ -238,7 +251,7 @@ function Problems(props)
                             : <option>Loading...</option>}
                     </select>
                 </div>
-                <div className="suffleButton">
+                <div className="suffleButton" onClick={Suffle}>
                     <span><i className="fa-solid fa-shuffle suffle"></i></span>
                     <span>Pick a problem</span>
                 </div>
