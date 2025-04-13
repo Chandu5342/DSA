@@ -58,7 +58,9 @@
         cursor: pointer;
         width: 11%;
     }
-  
+  .lb{
+    width: 107% !important;
+  }
     /* Button hover effect */
     .login-container .lb:hover {
         background-color: #104e8b; /* Darker blue */

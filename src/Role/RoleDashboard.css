@@ -8,14 +8,15 @@
 
 /* Sidebar */
 .sidebar {
-    width: 160px;
-    background-color: #2d62d9; /* Blue Sidebar */
+  
+    background-color: #162b40;
     padding: 20px;
     display: flex;
     flex-direction: column;
     gap: 10px;
     color: white;
     height: 100vh;
+    width: 190px;
 }
 
 .logo {
@@ -52,7 +53,7 @@
 
 /* Top Navigation Bar */
 .top-nav {
-    background-color: #f8f9fa; /* Light Grey */
+    background-color: #253b53;
     padding: 19px 20px;
     text-align: right;
     border-bottom: 1px solid #ccc;
@@ -71,7 +72,7 @@
 /* Content Area */
 .content-area {
     flex-grow: 1;
-    background-color: white;
+    background-color:#1e2a38;
     padding: 40px;
 }
 
@@ -96,3 +97,62 @@ a {
 a:hover {
     text-decoration: underline;
 }
+/* Filters */
+.filters {
+    background-color: #253b53;
+    padding: 10px;
+    border: 1px solid #3a506b;
+    border-radius: 5px;
+    margin: 20px 1.2%;
+    width: 58%;
+    display: flex
+;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+
+.filters label {
+    font-weight: bold;
+    color: #d1d5db; /* Light text color */
+}
+.suffle{
+    font-size: 2rem;
+}
+.suffleButton{
+    background-color: #253b53;
+    padding: 10px;
+    border: 1px solid #3a506b;
+    height: 3rem;
+}
+.probnav{
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+.filters select {
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #4a6379;
+    font-size: 16px;
+    background-color: #1e2a38;  /* Dark dropdown */
+    color: white;
+}
+.filsearch{
+        padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #4a6379;
+    font-size: 16px;
+    background-color: #1e2a38;
+    color: white;
+}
+.filters select:hover {
+    border-color: #63b3ed;
+}
+.prorbnav{
+    display: flex;
+    width: 120%;
+        margin-left: 2rem;
+        align-items: center;
+  }

@@ -106,7 +106,15 @@ function ProblemsR() {
 
         SetProblemList(filteredList);
     }, [Difficulty, Platform, Topic]);
-
+    
+    const Suffle = () => {
+      
+    
+        let randomProblem = dupProblemList[Math.floor(Math.random() * dupProblemList.length)];
+    
+        // 👇 Fix applied here
+        SetProblemList([randomProblem]);
+    };
     // Load Data on Mount
     useEffect(() => {
         LoadProblemList();
@@ -117,32 +125,36 @@ function ProblemsR() {
 
     return (
         <>
-            <div className="filters">
-                <label htmlFor="difficulty-filter">Difficulty:</label>
-                <select id="difficulty-filter" onChange={e => setDifficulty(e.target.value)}>
-                    <option value="All">All</option>
-                    {DifficultyDD.length > 0
-                        ? DifficultyDD.map(item => <option key={item.value} value={item.value}>{item.Lable}</option>)
-                        : <option>Loading...</option>}
-                </select>
-
-                <label htmlFor="platform-filter">Platform:</label>
-                <select id="platform-filter" onChange={e => setPlatform(e.target.value)}>
-                    <option value="All">All</option>
-                    {PlatformDD.length > 0
-                        ? PlatformDD.map(item => <option key={item.value} value={item.value}>{item.Lable}</option>)
-                        : <option>Loading...</option>}
-                </select>
-
-                <label htmlFor="topic-filter">Topic:</label>
-                <select id="topic-filter" onChange={e => setTopic(e.target.value)}>
-                    <option value="All">All</option>
-                    {TopicDD.length > 0
-                        ? TopicDD.map(item => <option key={item.value} value={item.value}>{item.Lable}</option>)
-                        : <option>Loading...</option>}
-                </select>
+              <div className="probnav">
+                <div className="filters">
+                    <input type="text" className="filsearch" placeholder="enter" />
+                    <label htmlFor="difficulty-filter">Difficulty:</label>
+                    <select id="difficulty-filter" onChange={e => setDifficulty(e.target.value)}>
+                        <option value="All">All</option>
+                        {DifficultyDD.length > 0
+                            ? DifficultyDD.map(item => <option key={item.value} value={item.value}>{item.Lable}</option>)
+                            : <option>Loading...</option>}
+                    </select>
+                    <label htmlFor="platform-filter">Platform:</label>
+                    <select id="platform-filter" onChange={e => setPlatform(e.target.value)}>
+                        <option value="All">All</option>
+                        {PlatformDD.length > 0
+                            ? PlatformDD.map(item => <option key={item.value} value={item.value}>{item.Lable}</option>)
+                            : <option>Loading...</option>}
+                    </select>
+                    <label htmlFor="topic-filter">Topic:</label>
+                    <select id="topic-filter" onChange={e => setTopic(e.target.value)}>
+                        <option value="All">All</option>
+                        {TopicDD.length > 0
+                            ? TopicDD.map(item => <option key={item.value} value={item.value}>{item.Lable}</option>)
+                            : <option>Loading...</option>}
+                    </select>
+                </div>
+                <div className="suffleButton" onClick={Suffle}>
+                    <span><i className="fa-solid fa-shuffle suffle"></i></span>
+                    <span>Pick a problem</span>
+                </div>
             </div>
-
             <table id="problems-table">
                 <thead>
                     <tr>
@@ -165,8 +177,7 @@ function ProblemsR() {
                             <td>{TopicMap[item.Topic] || "N/A"}</td>
                             <td><a href={item.Link} target="_blank" rel="noopener noreferrer"><i className="fa-solid fa-link"></i></a></td>
                             <td>
-                            <span><i class="fa-solid fa-shuffle"></i></span>
-                                <Link to={`/Dashboard/AddNewProb?id=${item.Id}`}><i className="fa-solid fa-pen-to-square acic"></i></Link>
+                                                            <Link to={`/Dashboard/AddNewProb?id=${item.Id}`}><i className="fa-solid fa-pen-to-square acic"></i></Link>
                                 <i className="fa-solid fa-trash" style={{ cursor: "pointer", color: "red", marginLeft: "10px" }} onClick={() => { setDeleteId(item.Id); Setshowdelete(true); }}></i>
                             </td>
                         </tr>

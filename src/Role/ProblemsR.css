@@ -1,3 +1,9 @@
 i:hover{
     cursor:pointer;
   }
+  .prorbnav{
+    display: flex;
+    width: 120%;
+        margin-left: 2rem;
+        align-items: center;
+  }

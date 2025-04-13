@@ -280,7 +280,7 @@ table a:hover {
 
 /* Sidebar (Progress & Leaderboard) */
 .sidebarp {
-    width: 24%;
+    width: 25%;
     background-color: #1e2a38;
     padding: 20px;
     border-radius: 8px;
@@ -408,5 +408,12 @@ table a:hover {
     .sidebarp {
         width: 120%;
         margin: 17px -9px;
+    }
+    .probnav{
+        display: block;
+    }
+    .suffleButton{
+        width: 38%;
+        margin-left: 8rem;
     }
 }
